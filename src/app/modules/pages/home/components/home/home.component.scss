@@ -3,63 +3,29 @@
 .home {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    input {
-      background-color: $inputBgColor;
-      border-radius: 5px;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: $inputNicknameSize;
-      border: none;
-      outline: none;
-    }
-
-    button {
-      width: 50%;
-      background-color: $joinActiveBgColorBtn;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: $joinBtnSize;
-      border: 0;
-      outline: none;
-      cursor: pointer;
-      transition: .3s;
-
-      &:disabled {
-        background-color: $joinDisabledBgColorBtn;
-        cursor: auto;
-        transition: .3s;
-      }
-    }
-  }
+  gap: 20px;
 }
 
-.controller {
+.first-test {
+  background-color: burlywood;
+}
+
+.second-test {
+  background-color: chartreuse;
   display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  opacity: 0;
-  transition: .6s;
-}
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
-.active {
-  opacity: 1;
-  transition: .6s;
-}
-
-.fullscreen {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  input {
+    outline: none;
+    border: 0;
+    background-color: blanchedalmond;
+    font-size: 10px;
+    border-radius: 10px;
+  }
 }

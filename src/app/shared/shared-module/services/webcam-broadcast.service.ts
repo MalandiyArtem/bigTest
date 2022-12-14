@@ -14,7 +14,7 @@ export class WebcamBroadcastService {
   private config = {
     iceServers: [
       {
-        urls: CONSTANTS.URLS.BROADCASTING.STUN_SERVER,
+        urls: 'https://google.com',
       },
     ],
   };
@@ -46,7 +46,9 @@ export class WebcamBroadcastService {
     this.socket.on('candidate', (id: string, candidate: RTCIceCandidate) => {
       this.peerConnection
         .addIceCandidate(new RTCIceCandidate(candidate))
-        .catch((e: RTCPeerConnectionIceErrorEvent) => console.error(e));
+        .catch((e: RTCPeerConnectionIceErrorEvent) => {
+          console.error(e);
+        });
     });
 
     this.socket.on('connect', () => {

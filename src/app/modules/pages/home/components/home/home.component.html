@@ -1,31 +1,17 @@
 <div appIsIframe class="home-wrapper">
-  <div *ngIf="hasAccess; else noAccess" class="home">
-    <form
-      (ngSubmit)="onSubmit()"
-      [formGroup]="form"
-    >
-      <input
-        [(ngModel)]="value"
-        formControlName="userName"
-        maxlength="20"
-        placeholder="Enter your nickname"
-        type="text"
-      >
-      <button
-        [disabled]="form.invalid"
-        type="submit"
-      >Join test record
-      </button>
-    </form>
-  </div>
-  <div
-    [activeClass]="'active'" appControl
-    class="controller"
-  >
-    <app-fullscreen class="fullscreen"></app-fullscreen>
+  <div class="home">
+    <div class="first-test">
+      <span>Time: {{ intervalValue }}</span>
+    </div>
+
+    <div class="second-test">
+      <input type="text" value="hello">
+      <input type="text" value="world">
+      <input type="text" value="test">
+    </div>
   </div>
 </div>
 
 <ng-template #noAccess>
-  <h3>You don't have access to our module</h3>
+  End of this recording
 </ng-template>

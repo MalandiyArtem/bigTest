@@ -7,11 +7,5 @@ import { BehaviorSubject } from 'rxjs';
 export class ActiveFileService {
   private activeFilePath$ = new BehaviorSubject('');
 
-  setActiveFile(path: string) {
-    this.activeFilePath$.next(path);
-  }
-
-  getActiveFile() {
-    return this.activeFilePath$.asObservable();
-  }
+  // is unvaliable
 }

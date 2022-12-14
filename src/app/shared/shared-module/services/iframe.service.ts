@@ -9,10 +9,6 @@ export class IframeService {
   }
 
   checkIsIframe(page: string) {
-    // if (window === window.top) {
-      // this.router.navigate(['/not-found']);
-    // } else {
-      this.router.navigate([page]);
-    // }
+    this.router.navigate([page]);
   }
 }

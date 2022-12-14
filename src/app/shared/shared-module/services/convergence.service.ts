@@ -44,6 +44,7 @@ export class ConvergenceService {
           .then((model: RealTimeModel) => {
             this.childModel$.next(model);
             const realTimeText = model.elementAt('Text');
+            console.log(2+2);
             console.log(realTimeText.value());
           })
           .catch((e: Error) => {
