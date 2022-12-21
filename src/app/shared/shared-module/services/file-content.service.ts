@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { FileEncodingType } from '../../interfaces/Records/file-encoding-type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FileContentService {
+  private test_string = 'test string';
+
   decodeContent() : string {
-    return 'Decoded code';
+    return `${this.test_string} - ({welcome}) = [test hello]`;
   }
 }

@@ -1,6 +1,3 @@
-import { endWith } from 'rxjs';
-import { RecordedCodeCommands } from './interfaces/Records/recorded-code-commands.interface';
-
 export const configFile = {
   entryFileFullPath: 'c:\\Users\\malan\\Desktop\\sampleTest\\file1.js',
   entryFileRelativePath: 'sampleTest\\file1.js',
@@ -10,5 +7,6 @@ export const configFile = {
   rootFolder: 'sampleTest',
 };
 
-This is not the endWith
-console.log('Test');
+console.log(configFile.commitHash);
+
+I finished

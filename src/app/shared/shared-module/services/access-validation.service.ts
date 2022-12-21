@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AccessValidationService {
-  private token = '12345678900987654321';
+  private token = 'token validation';
 
-  hasAccess(token: string) {
-    return this.token === token;
+  hasAccess() {
+    return this.token;
   }
 }

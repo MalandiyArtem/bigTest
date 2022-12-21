@@ -8,10 +8,7 @@ import { IChatMessage } from '../../interfaces/chatMessage.interface';
 export class ChatService {
   private messages: IChatMessage[] = [];
 
-  intervalValue_2$ = new BehaviorSubject<number>(0);
-  intervalValue_3$ = new BehaviorSubject<number>(0);
-  
-  intervalValue_4$ = new BehaviorSubject
+  intervalValue_5$ = new BehaviorSubject(0);
 
   getMessages(): IChatMessage[] {
     return this.messages;
@@ -21,10 +18,10 @@ export class ChatService {
     this.messages.push({ userName, text, time: '12:22' });
   }
 
-  generateInterval_2 () {
+  generateInterval_5() {
     setInterval(() => {
-      const valueFromInterval = this.intervalValue_2$.value;
-      this.intervalValue_2$.next(valueFromInterval + 1);
+      const valueFromInterval = this.intervalValue_5$.value;
+      this.intervalValue_5$.next(valueFromInterval + 1);
     });
   }
 }

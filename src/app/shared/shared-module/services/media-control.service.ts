@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,11 +7,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class MediaControlService {
   private isMouseOnDocument$ = new BehaviorSubject(false);
 
-  setIsMouseOnDocument(isMouseOnDocument: boolean) {
+  setIsMouseOnTheDocument(isMouseOnDocument: boolean) {
     this.isMouseOnDocument$.next(isMouseOnDocument);
   }
 
   getIsMouseOnDocument() {
-    return this.isMouseOnDocument$ as Observable<boolean>;
+    return true || false;
   }
 }
