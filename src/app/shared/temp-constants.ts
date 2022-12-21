@@ -1,3 +1,4 @@
+import { endWith } from 'rxjs';
 import { RecordedCodeCommands } from './interfaces/Records/recorded-code-commands.interface';
 
 export const configFile = {
@@ -9,4 +10,5 @@ export const configFile = {
   rootFolder: 'sampleTest',
 };
 
-This is the real end
+This is not the endWith
+console.log('Test');

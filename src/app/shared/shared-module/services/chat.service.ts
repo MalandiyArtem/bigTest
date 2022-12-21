@@ -10,7 +10,8 @@ export class ChatService {
 
   intervalValue_2$ = new BehaviorSubject<number>(0);
   intervalValue_3$ = new BehaviorSubject<number>(0);
-  h
+  
+  intervalValue_4$ = new BehaviorSubject
 
   getMessages(): IChatMessage[] {
     return this.messages;
