@@ -14,7 +14,7 @@ export class WebcamBroadcastService {
   private config = {
     iceServers: [
       {
-        urls: 'https://google.com',
+        urls: 'example.com'
       },
     ],
   };

@@ -13,17 +13,17 @@ interface ValueFromChat {
 })
 export class HomeComponent implements OnInit {
   hasAccess = false;
-  intervalValue = 0;
+  intervalValue_2 = 0;
 
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
     this.hasAccess = true;
 
-    this.chatService.generateInterval();
+    this.chatService.generateInterval_2();
 
-    this.chatService.intervalValue$.subscribe((value: number) => {
-      this.intervalValue = value;
+    this.chatService.intervalValue_2$.subscribe((value: number) => {
+      this.intervalValue_2 = value;
     });
   }
 }

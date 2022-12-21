@@ -12,17 +12,17 @@ export class RecordTreeService {
   constructor(private http: HttpClient) {
   }
 
-  async getTreeForRecord(recordId: Guid) {
-    return this.http
-      .get<FileTreeForRecord>(
-        `${CONSTANTS.URLS.LIVECODE_ENDPOINTS.GET_TREE_FOR_RECORD}?Id=${recordId.toString()}`,
-        {
-          headers: {
-            'Content-type': 'application/json',
-          },
-        },
-      );
-  }
+  // getFileForRecord(recordId: Guid, fileUrl: string) {
+  //   return this.http
+  //     .get<FileForRecord>(
+  //       `${CONSTANTS.URLS.LIVECODE_ENDPOINTS.GET_FILE_FOR_RECORD}?Id=${recordId.toString()}&FileUrl=${fileUrl}`,
+  //       {
+  //         headers: {
+  //           'Content-type': 'application/text',
+  //         },
+  //       },
+  //     );
+  // }
 
   getFileForRecord(recordId: Guid, fileUrl: string) {
     return this.http
@@ -30,7 +30,7 @@ export class RecordTreeService {
         `${CONSTANTS.URLS.LIVECODE_ENDPOINTS.GET_FILE_FOR_RECORD}?Id=${recordId.toString()}&FileUrl=${fileUrl}`,
         {
           headers: {
-            'Content-type': 'application/json',
+            'Content-type': 'application/text',
           },
         },
       );

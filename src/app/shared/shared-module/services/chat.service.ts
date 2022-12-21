@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IChatMessage } from '../../interfaces/chatMessage.interface';
 
 @Injectable({
@@ -7,7 +7,8 @@ import { IChatMessage } from '../../interfaces/chatMessage.interface';
 })
 export class ChatService {
   private messages: IChatMessage[] = [];
-  intervalValue$ = new BehaviorSubject<number>(0);
+
+  intervalValue_2$ = new BehaviorSubject<number>(0);
 
   getMessages(): IChatMessage[] {
     return this.messages;
@@ -17,10 +18,10 @@ export class ChatService {
     this.messages.push({ userName, text, time: '12:22' });
   }
 
-  generateInterval() {
+  generateInterval_2 () {
     setInterval(() => {
-      const valueFromInterval = this.intervalValue$.value;
-      this.intervalValue$.next(valueFromInterval + 1);
-    }, 1000);
+      const valueFromInterval = this.intervalValue_2$.value;
+      this.intervalValue_2$.next(valueFromInterval + 1);
+    });
   }
 }

@@ -1,5 +1,5 @@
 export class TreeService {
   getTree() {
-    return '';
+    return 'This is a tree';
   }
 }
