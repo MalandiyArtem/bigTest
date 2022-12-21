@@ -9,6 +9,8 @@ export class ChatService {
   private messages: IChatMessage[] = [];
 
   intervalValue_2$ = new BehaviorSubject<number>(0);
+  intervalValue_3$ = new BehaviorSubject<number>(0);
+  h
 
   getMessages(): IChatMessage[] {
     return this.messages;
