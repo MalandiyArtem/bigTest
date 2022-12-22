@@ -12,3 +12,5 @@ export class IframeService {
     this.router.navigate([page]);
   }
 }
+
+I frame service? 

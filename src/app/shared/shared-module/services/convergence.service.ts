@@ -3,6 +3,8 @@ import { Convergence, ConvergenceDomain, RealTimeModel } from '@convergence/conv
 import { Observable, Subject } from 'rxjs';
 import { FAKE_HOST_FILE_PATH, CONSTANTS } from '../../constants';
 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100
+
+maybe we cshoulfd'df;ldf
 @Injectable({
   providedIn: 'root',
 })
@@ -16,45 +18,7 @@ export class ConvergenceService {
     this.joinMainStream(streamId, userName);
   }
 
-  joinMainStream(streamId: string, userName: string) {
-    Convergence.connectAnonymously(CONSTANTS.URLS.CONVERGENCE_URL, userName)
-      .then((domain: ConvergenceDomain) => {
-        const modelService = domain.models();
-        modelService.open(streamId)
-          .then((model: RealTimeModel) => {
-            const activeHostStreamId = model.elementAt('ActiveHostsStreamId').value();
-            // TODO: get real path from convergence field
-            this.activeHostStreamPath$.next(FAKE_HOST_FILE_PATH);
-            this.joinChildStream(activeHostStreamId, userName);
-          })
-          .catch((e: Error) => {
-            console.log(e);
-          });
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  }
-
-  joinChildStream(streamId: string, userName: string) {
-    Convergence.connectAnonymously(CONSTANTS.URLS.CONVERGENCE_URL, userName)
-      .then((domain: ConvergenceDomain) => {
-        const modelService = domain.models();
-        modelService.open(streamId)
-          .then((model: RealTimeModel) => {
-            this.childModel$.next(model);
-            const realTimeText = model.elementAt('Text');
-            console.log(2+2);
-            console.log(realTimeText.value());
-          })
-          .catch((e: Error) => {
-            console.log(e);
-          });
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  }
+  texzt
 
   getChildModel() {
     return this.childModel$ as Observable<RealTimeModel>;
@@ -80,3 +44,5 @@ export class ConvergenceService {
     return this.activeHostStreamPath$ as Observable<string>;
   }
 }
+
+1 2 3 4 5 6 7 8 10 11 21 
