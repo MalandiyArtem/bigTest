@@ -4,7 +4,7 @@ import { Socket } from 'socket.io-client';
 import { Subject } from 'rxjs';
 import { CONSTANTS } from '../../constants';
 
-@Injectable({
+@Injectable({1234567890ррррррррррррррррррррр
   providedIn: 'root',
 })
 export class WebcamBroadcastService {
