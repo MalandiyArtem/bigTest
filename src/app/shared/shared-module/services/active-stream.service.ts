@@ -1,233 +1,233 @@
-import { Injectable } from '@angular/core';
-import { Guid } from 'guid-typescript';
-import { ReplaySubject } from 'rxjs';
-import { StreamType } from '../../enums/stream-type';
+// import { Injectable } from '@angular/core';
+// import { Guid } from 'guid-typescript';
+// import { ReplaySubject } from 'rxjs';
+// import { StreamType } from '../../enums/stream-type';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }@Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }
 
-@Injectable({fff
-  providedIn: 'root',ff
-})
-export class ActiveStreamService {
-  private streamId$ = new ReplaySubject(1);
-  private streamType$ = new ReplaySubject(1);
+// @Injectable({fff
+//   providedIn: 'root',ff
+// })
+// export class ActiveStreamService {
+//   private streamId$ = new ReplaySubject(1);
+//   private streamType$ = new ReplaySubject(1);
 
-  setStreamInfo(streamId: Guid, streamType: StreamType) {
-    this.streamId$.next(streamId);
-    this.streamType$.next(streamType);
-  }
+//   setStreamInfo(streamId: Guid, streamType: StreamType) {
+//     this.streamId$.next(streamId);
+//     this.streamType$.next(streamType);
+//   }
 
-  getStreamId() {
-    return this.streamId$.asObservable();
-  }
+//   getStreamId() {
+//     return this.streamId$.asObservable();
+//   }
 
-  getStreamType() {
-    return this.streamType$.asObservable();
-  }
-}
+//   getStreamType() {
+//     return this.streamType$.asObservable();
+//   }
+// }dd
