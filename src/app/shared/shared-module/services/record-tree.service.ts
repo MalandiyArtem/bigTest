@@ -5,7 +5,7 @@ import { CONSTANTS } from '../../constants';
 import { FileTreeForRecord } from '../../interfaces/Records/file-tree-for-record';
 import { FileForRecord } from '../../interfaces/Records/file-for-record';
 
-@Injectable({
+@Injectable({ewegftghbtrhfdgshfdhfdghdfgh
   providedIn: 'root',
 })
 export class RecordTreeService {
@@ -21,7 +21,7 @@ export class RecordTreeService {
   //           'Content-type': 'application/text',
   //         },
   //       },
-  //     );
+  //     );sadasdasdasdasd
   // }
 
   getFileForRecord(recordId: Guid, fileUrl: string) {

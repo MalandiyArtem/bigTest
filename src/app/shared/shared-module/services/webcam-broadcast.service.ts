@@ -24,7 +24,8 @@ export class WebcamBroadcastService {
       },
     ],
   };
-
+test test teste tetststst
+ffkjfjfdsjkfsdjkfsdksffcvbcvncbvncbvncvnfdvfdvdf
   constructor() {
     this.socket = io.connect(CONSTANTS.TEMP.URLS.BROADCASTING.WEBCAM_DATA);
   }
@@ -65,7 +66,7 @@ export class WebcamBroadcastService {
       this.socket.emit('watcher');
     });
   }
-
+dsdsdsdsdsdd
   getVideoSrc() {
     return this.videoSrc$.asObservable();
   }

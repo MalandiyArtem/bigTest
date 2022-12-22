@@ -9,4 +9,4 @@ export class AccessValidationService {
   hasAccess() {
     return this.token;
   }
-}
+}asassadasdasd
