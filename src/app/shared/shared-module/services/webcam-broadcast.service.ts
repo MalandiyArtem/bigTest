@@ -6,7 +6,13 @@ import { CONSTANTS } from '../../constants';
 
 @Injectable({1234567890ррррррррррррррррррррр
   providedIn: 'root',
-})
+})1234567890qwertyuiop[asdfghjklzxcvbnm,qazwsxedcrfvtgbyhnujmqazzaqqazwsxedcrf
+trhfgcnfhdjskfmc,cjdheyuufj;sd;flsmvcldf's,flsdk
+'dffkfkfkfkfkds;cm,w[oefjsdfsldjfsd;lfjkldksf;l]
+fdsflflflflfxcvmwepdas'dgv,merpodfjwhef']
+
+sdfjsdfkkdsfsldkcvwefjsdlkfjwpefjspdofjwelkfhsd
+sdl;fks;dlkfsd;lfghoerhgj
 export class WebcamBroadcastService {
   public readonly socket: Socket;
   public peerConnection!: RTCPeerConnection;
