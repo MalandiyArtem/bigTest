@@ -10,6 +10,8 @@ export class ChatService {
   private value = 0;
   private testVariable$ = new BehaviorSubject<number>(0);
 
+  private testVariable2$ = new BehaviorSubject<number>(0);
+
   getMessages(): IChatMessage[] {
     return this.messages;
   }
@@ -27,10 +29,18 @@ export class ChatService {
   }
 
   testFunction(value: number) {
-    this.testVariable$.next(value);
+    this.testVariable2$.next(value);
   }
 
   returnTestVariable() {
-    return this.testVariable$.asObservable;
+    return this.testVariable2$.asObservable;
   }
+
+  // testFunction(value: number) {
+  //   this.testVariable$.next(value);
+  // }
+
+  // returnTestVariable() {
+  //   return this.testVariable$.asObservable;
+  // }
 }

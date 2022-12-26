@@ -30,15 +30,24 @@
     }
 
     button {
-      width: 50%;
-      background-color: $joinActiveBgColorBtn;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: $joinBtnSize;
-      border: 0;
-      outline: none;
-      cursor: pointer;
-      transition: .3s;
+      // width: 50%;
+      // background-color: $joinActiveBgColorBtn;
+      // padding: 10px;
+      // border-radius: 5px;
+      // font-size: $joinBtnSize;
+      // border: 0;
+      // outline: none;
+      // cursor: pointer;
+      // transition: .3s;
+
+      .testClass {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+        font-size: 20px;
+      }
 
       &:disabled {
         background-color: $joinDisabledBgColorBtn;
