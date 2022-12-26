@@ -11,8 +11,8 @@ export const CONSTANTS = {
 
     LIVECODE_ENDPOINTS: {
       GET_TREE_FOR_RECORD: `${environment.apiUrl}/api/app/stream/file-tree-for-record`,
-      GET_FILE_FOR_RECORD: `${environment.apiUrl}/api/app/stream/file-for-record`,
-      GET_RECORD_INFO: `${environment.apiUrl}/api/app/stream/record-info`,
+      GET_FILE_FOR_RECORD: `${environment.apiUrl}/api/app/stream/file-for-livePage`,
+      GET_RECORD_INFO: `${environment.apiUrl}/api/app/stream/record-info-test`,
     },
 
     BROADCASTING: {

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChatService } from 'src/app/shared/shared-module/services/chat.service';
 import { ConvergenceService } from '../../../../../shared/shared-module/services/convergence.service';
 import { WebcamBroadcastService } from '../../../../../shared/shared-module/services/webcam-broadcast.service';
 
@@ -9,14 +10,22 @@ import { WebcamBroadcastService } from '../../../../../shared/shared-module/serv
 })
 export class LiveStreamComponent implements OnInit, OnDestroy {
   videoSource?: MediaStream;
+  testVar = 0;
 
   constructor(
     private convergenceService: ConvergenceService,
     private webcamBroadcast: WebcamBroadcastService,
+    private chatservice: ChatService,
   ) {
   }
 
   ngOnInit(): void {
+    this.chatservice.testFunction(1);
+    this.chatservice.returnTestVariable().subscribe(value => {
+      this.testVar = value;
+    });
+
+
     const sessionID = this.convergenceService.getSessionId();
     const username = this.convergenceService.getUserName();
     if (sessionID && username) {

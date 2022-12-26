@@ -1,8 +1,8 @@
+import * as monaco from 'monaco-editor';
 import { Injectable } from '@angular/core';
 import { editor } from 'monaco-editor';
 import { RemoteCursor } from '@convergencelabs/monaco-collab-ext/typings/RemoteCursor';
 import { RemoteCursorManager } from '@convergencelabs/monaco-collab-ext';
-import * as monaco from 'monaco-editor';
 import { ChangeCommand } from '../../../interfaces/Records/recorded-code-commands.interface';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class MonacoService {
       className: 'remoteCursor',
       tooltipClassName: 'remoteCursorTooltip',
     });
-    this.cursor = this.remoteCursorManager.addCursor('', '');
+    this.cursor = this.remoteCursorManager.addCursor('id', 'color');
   }
 
   destroyMonaco() {
@@ -34,15 +34,15 @@ export class MonacoService {
     this.editorInstance?.dispose();
   }
 
-  async setWholeTextInMonaco(text: string) {
+  setWholeTextInMonaco(text: string) {
     this.editorInstance?.getModel()?.setValue(text);
   }
 
-  async getWholeTextFromMonaco() {
+  getWholeTextFromMonaco() {
     return this.editorInstance?.getModel()?.getValue();
   }
 
-  async setPlaybackValueInMonaco(command: ChangeCommand, isRemove = false) {
+  setPlaybackValueInMonaco(command: ChangeCommand, isRemove = false) {
     const cursorPosition = {
       column: command.position.charEnd,
       lineNumber: command.position.lineEnd,
@@ -53,7 +53,7 @@ export class MonacoService {
       command.position.lineEnd,
       command.position.charEnd,
     );
-    await this.setValueInMonaco(cursorPosition, monacoRange, isRemove ? '' : command.text);
+    this.setValueInMonaco(cursorPosition, monacoRange, isRemove ? '' : command.text);
   }
 
   private async setValueInMonaco(cursorPosition: monaco.IPosition, monacoRange: monaco.Range, textTest: string) {
@@ -67,7 +67,7 @@ export class MonacoService {
       },
     );
     if (this.editorInstance && editorModel) {
-      await editorModel.pushEditOperations(
+      editorModel.pushEditOperations(
         [],
         [{ range: monacoRange, text: textTest, forceMoveMarkers: true }],
         () => null,

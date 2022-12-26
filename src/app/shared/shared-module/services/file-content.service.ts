@@ -16,4 +16,8 @@ export class FileContentService {
         return content;
     }
   }
+
+  myFunc() {
+    console.log('Help');
+  }
 }

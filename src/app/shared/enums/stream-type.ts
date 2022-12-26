@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-shadow
 export enum StreamType {
-  Undefined = 'undefined',
+  Undefined = 'unknown',
   Stream = 'stream',
   Record = 'record',
 }
