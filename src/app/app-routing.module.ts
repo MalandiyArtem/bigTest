@@ -7,7 +7,7 @@ import { NotFoundComponent } from './modules/pages/not-found/components/not-foun
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home/:streamType/:streamId', component: HomeComponent },
   { path: 'stream', component: LiveStreamComponent },
   { path: 'record', component: RecordComponent },
   { path: '**', component: NotFoundComponent },

@@ -1,6 +1,6 @@
-export enum ChangeEventMy {
+export enum ChangeEvent {
   end = 'end',
-  changeFile = 'changeFile',
-  insert = 'insert',
-  remove = 'remove',
+  changeFile = 'cf',
+  insert = 'ins',
+  remove = 'rmv',
 }

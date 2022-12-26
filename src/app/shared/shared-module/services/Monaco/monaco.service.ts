@@ -34,15 +34,15 @@ export class MonacoService {
     this.editorInstance?.dispose();
   }
 
-  setWholeTextInMonaco(text: string) {
+  async setWholeTextInMonaco(text: string) {
     this.editorInstance?.getModel()?.setValue(text);
   }
 
-  getWholeTextFromMonaco() {
+  async getWholeTextFromMonaco() {
     return this.editorInstance?.getModel()?.getValue();
   }
 
-  setPlaybackValueInMonaco(command: ChangeCommand, isRemove = false) {
+  async setPlaybackValueInMonaco(command: ChangeCommand, isRemove = false) {
     const cursorPosition = {
       column: command.position.charEnd,
       lineNumber: command.position.lineEnd,
@@ -53,14 +53,11 @@ export class MonacoService {
       command.position.lineEnd,
       command.position.charEnd,
     );
-    // console.log(monacoRange);
-    // console.log(isRemove);
-    this.setValueInMonaco(cursorPosition, monacoRange, isRemove ? '' : command.text);
+    await this.setValueInMonaco(cursorPosition, monacoRange, isRemove ? '' : command.text);
   }
 
   private async setValueInMonaco(cursorPosition: monaco.IPosition, monacoRange: monaco.Range, textTest: string) {
-    // console.log(monacoRange);
-    // console.log(textTest);
+    const editorModel = this.editorInstance?.getModel();
     this.cursor?.setPosition(cursorPosition);
     this.editorInstance?.revealPositionInCenter(
       {
@@ -69,15 +66,12 @@ export class MonacoService {
         monacoRange.endLineNumber,
       },
     );
-    if (this.editorInstance) {
-      if (this.editorInstance.getModel()) {
-        // @ts-ignore
-        await this.editorInstance.getModel().pushEditOperations(
-          [],
-          [{ range: monacoRange, text: textTest, forceMoveMarkers: true }],
-          () => null,
-        );
-      }
+    if (this.editorInstance && editorModel) {
+      await editorModel.pushEditOperations(
+        [],
+        [{ range: monacoRange, text: textTest, forceMoveMarkers: true }],
+        () => null,
+      );
     }
   }
 }

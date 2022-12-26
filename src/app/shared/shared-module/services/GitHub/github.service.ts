@@ -15,7 +15,7 @@ export class GithubService {
   constructor(private http: HttpClient, private fileContentService: FileContentService) { }
 
   sendRequestToGetRemoteFileText(
-    fileName:string,
+    pathToFile:string,
     commitHash: string,
     ownerName: string,
     repoName: string,
@@ -23,7 +23,7 @@ export class GithubService {
     const url = CONSTANTS.URLS.GITHUB.GET_FILE_TEXT
       .replace('{ownerName}', ownerName)
       .replace('{repoName}', repoName)
-      .replace('{fileName}', fileName.replace('/', '%2F'))
+      .replace('{pathToFile}', pathToFile.replace('//', '%2F'))
       .replace('{hash}', commitHash);
 
     this.http.get<RemoteFileTextInterface>(url).subscribe((data) => {
@@ -52,20 +52,9 @@ export class GithubService {
     const url = CONSTANTS.URLS.GITHUB.GET_FILE_TEXT
       .replace('{ownerName}', ownerName)
       .replace('{repoName}', repoName)
-      .replace('{fileName}', fileName.replace('/', '%2F'))
+      .replace('{pathToFile}', fileName.replace('//', '%2F'))
       .replace('{hash}', commitHash);
 
-    return firstValueFrom(this.http.get<RemoteFileTextInterface>(url)); // .toPromise(); // .subscribe((data) => {
-    /*
-      const textOfFile = this.fileContentService.decodeContent(data.content, data.encoding);
-
-      const response = {
-        text: textOfFile,
-        fileName: data.name,
-        path: data.path,
-      };
-
-      this.textOfFile$.next(response);
-    }); */
+    return firstValueFrom(this.http.get<RemoteFileTextInterface>(url));
   }
 }

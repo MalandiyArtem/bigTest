@@ -5,14 +5,62 @@ import { IViewerInfo } from '../../interfaces/viewerInfo.interface';
   providedIn: 'root',
 })
 export class ViewersService {
-
-  // no Vievers
+  private viewerList: IViewerInfo[] = [
+    {
+      userName: 'Ivan Ivanov',
+      canEdit: true,
+    },
+    {
+      userName: 'Artem Malandiy',
+      canEdit: false,
+    },
+    {
+      userName: 'Test profile',
+      canEdit: false,
+    },
+    {
+      userName: 'Anna Lorem',
+      canEdit: false,
+    },
+    {
+      userName: 'LoremipsumdolorsitametconsecteturadipiscingelitNullamnoncondimentumdiamacaccumsanfelisCrasorcienimornareetduiutdapibusnamdjgdshjeyufhaldfnsdiurfjsdfjf',
+      canEdit: true,
+    },
+    {
+      userName: 'Alex Zipper',
+      canEdit: true,
+    },
+    {
+      userName: 'Helena Artvither',
+      canEdit: false,
+    },
+    {
+      userName: 'American Resident',
+      canEdit: false,
+    },
+    {
+      userName: 'Something Else',
+      canEdit: true,
+    },
+    {
+      userName: 'Someone Else',
+      canEdit: false,
+    },
+    {
+      userName: 'Unknown Player',
+      canEdit: false,
+    },
+    {
+      userName: 'Cloudy Weather',
+      canEdit: false,
+    },
+    {
+      userName: 'Tiny Bunny',
+      canEdit: true,
+    },
+  ];
 
   getViewerListInfo(): IViewerInfo[] {
-    return ['viewer_1', 'viewer_2', 'viewer_3', 'viewer_4', 'viewer_5', 'viewer_6', 'viewer_7'];
-  }
-
-  setViewerInfo(viewerInfo: string) {
-    console.log(viewerInfo);
+    return this.viewerList;
   }
 }

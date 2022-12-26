@@ -30,25 +30,11 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/recommended",
-        "airbnb"
+        "plugin:import/recommended",
+        "airbnb-typescript/base"
       ],
       "rules": {
-        "import/prefer-default-export": "off",
-        "class-methods-use-this": "off",
-        "import/extensions": "off",
-        "lines-between-class-members": "off",
-        "no-plusplus": "off",
-        "no-useless-constructor": "off",
-        "no-empty-function": "off",
-        "no-unused-vars": "warn",
-        "no-return-assign": "off",
-        "linebreak-style": "off",
-        "dot-notation": "off",
-        "max-len": "off",
-        "@typescript-eslint/ban-ts-comment": "off",
-        "no-await-in-loop": "off",
-        "no-restricted-syntax": "off",
-        "no-param-reassign": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

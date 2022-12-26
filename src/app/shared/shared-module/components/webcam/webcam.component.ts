@@ -13,7 +13,6 @@ export class WebcamComponent implements OnChanges, AfterViewInit {
   @Input() duration = 0;
   @Input() isMuted = false;
   @Input() isAutoplay = false;
-  @Input() timeSecToRewind = 0;
 
   @Output() timeSecUpdate = new EventEmitter<number>();
   @Output() videoEndedChange = new EventEmitter<void>();
@@ -26,9 +25,6 @@ export class WebcamComponent implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['source']) {
       this.webcamPlayer?.nativeElement.load();
-    }
-    if (changes['timeSecToRewind'] && this.webcamPlayer) {
-      this.webcamPlayer.nativeElement.currentTime = this.timeSecToRewind;
     }
   }
 

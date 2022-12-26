@@ -13,12 +13,12 @@ export class RecordInfoService {
   getRecordInfo(recordId: Guid) {
     return this.http
       .get<RecordInfo>(
-        `${CONSTANTS.URLS.LIVECODE_ENDPOINTS.GET_RECORD_INFO}?RecordId=${recordId.toString()}`,
-        {
-          headers: {
-            'Content-type': 'application/json',
-          },
+      `${CONSTANTS.URLS.LIVECODE_ENDPOINTS.GET_RECORD_INFO}?RecordId=${recordId.toString()}`,
+      {
+        headers: {
+          'Content-type': 'application/json',
         },
-      );
+      },
+    );
   }
 }

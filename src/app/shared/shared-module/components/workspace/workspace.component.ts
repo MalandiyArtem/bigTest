@@ -1,6 +1,6 @@
 import {
   AfterViewInit, ChangeDetectorRef, Component, Input,
-  OnChanges, OnInit, SimpleChanges, ViewChild, ViewEncapsulation,
+  OnChanges, OnInit, ViewChild, ViewEncapsulation,
 } from '@angular/core';
 import { first } from 'rxjs';
 import { Guid } from 'guid-typescript';
@@ -44,7 +44,7 @@ export class WorkspaceComponent implements AfterViewInit, OnInit, OnChanges {
   ) {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if (this.streamType === StreamType.Record) {
       if (this.hostRecordFile !== undefined) {
         const fileFOrRecordResponseSubscribe = this.recordTreeService

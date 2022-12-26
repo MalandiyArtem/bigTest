@@ -6,7 +6,7 @@ export const CONSTANTS = {
     CONVERGENCE_URL: 'https://liveshare.advantiss.ml/realtime/convergence/default',
 
     GITHUB: {
-      GET_FILE_TEXT: 'https://api.github.com/repos/{ownerName}/{repoName}/contents/{fileName}?ref={hash}',
+      GET_FILE_TEXT: 'https://api.github.com/repos/{ownerName}/{repoName}/contents/{pathToFile}?ref={hash}',
     },
 
     LIVECODE_ENDPOINTS: {

@@ -1,15 +1,19 @@
-import { noCacheNormalize } from '@angular-devkit/core';
 import { Injectable } from '@angular/core';
-101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120
+import { FileEncodingType } from '../../interfaces/Records/file-encoding-type';
+
 @Injectable({
   providedIn: 'root',
 })
 export class FileContentService {
-  private test_string = 'test string';
-
-  decodeContent() : string {
-    return `${this.test_string} - ({welcome}) = [test hello]`;
+  decodeContent(content: string, encodingType: string) : string {
+    switch (encodingType) {
+      case FileEncodingType.utf8:
+        return content;
+      case FileEncodingType.base64:
+        content = content.replace('77u/', '');
+        return decodeURIComponent(encodeURI(window.atob(content)));
+      default:
+        return content;
+    }
   }
 }
-
-noCacheNormalize, don;t dothis

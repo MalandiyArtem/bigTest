@@ -2,6 +2,17 @@ import { Injectable } from '@angular/core';
 import { commandsFile, configFile } from '../../../temp-constants';
 import { RecordedCodeCommands } from '../../../interfaces/Records/recorded-code-commands.interface';
 
+// TODO: extract in separate interface
+interface TimeMark {
+  title: string,
+  timePoint: {
+    hours: number,
+    minutes: number,
+    seconds: number,
+    milliseconds: number,
+  },
+}
+
 interface RecordConfig {
   duration: number,
   repoName: string,
@@ -10,7 +21,8 @@ interface RecordConfig {
   commitHash: string,
   relativePath: string,
   commands: RecordedCodeCommands,
-  rootFolder: string
+  rootFolder: string,
+  timeMarks: TimeMark[]
 }
 
 @Injectable({
@@ -37,6 +49,7 @@ export class RecordConfigService {
         relativePath: configFile.entryFileRelativePath,
         commands: commandsFile,
         rootFolder: configFile.rootFolder,
+        timeMarks: configFile.timestamps,
       };
 
       this.config = response;

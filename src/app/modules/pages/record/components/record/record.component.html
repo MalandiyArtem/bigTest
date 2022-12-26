@@ -63,10 +63,16 @@
             [disabled]="false"
             [max]="recordDurationSec"
             [min]="0"
-            [step]="0.01"
+            [step]="1"
             [discrete]="true"
             [displayWith]="formatLabel"
           >
+            <div *ngFor="let timeMark of timeMarks"
+                 class="point"
+                 [ngStyle]="{left: timeMark.position - 1 + '%'}"
+                 [matTooltip]="timeMark.title"
+                 (click)="dragEnd(timeMark.timeInSec)"
+            ></div>
             <input
               [disabled]="sliderDisabled"
               matSliderThumb

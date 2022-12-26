@@ -46,10 +46,10 @@ export class TempStoreService {
         return undefined;
       }
     }
-    return 'Unknown';
+    return undefined;
   }
 
-  setTempWholeText(path: string, text: string, isFromGithub?: boolean) {
+  async setTempWholeText(path: string, text: string, isFromGithub?: boolean) {
     let relativePath = path;
 
     if (isFromGithub) {
@@ -73,15 +73,12 @@ export class TempStoreService {
   }
 
   getContentFromTemp(relativePath: string) {
-    return new Promise<GetContentFromTempResponse>((resolve) => {
-      const fileId = this.getFileId(relativePath);
-      if (fileId) {
-        const idInWholeText = this.wholeText.items.find((wholeTextItem) => fileId in wholeTextItem) || {};
-        resolve({ hasTempContent: true, path: relativePath, text: idInWholeText[fileId] });
-      } else {
-        resolve({ hasTempContent: false, path: relativePath });
-      }
-    });
+    const fileId = this.getFileId(relativePath);
+    if (fileId) {
+      const idInWholeText = this.wholeText.items.find((wholeTextItem) => fileId in wholeTextItem) || {};
+      return { hasTempContent: true, path: relativePath, text: idInWholeText[fileId] };
+    }
+    return { hasTempContent: false, path: relativePath };
   }
 
   clearTemp() {

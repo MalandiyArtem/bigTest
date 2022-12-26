@@ -1,6 +1,4 @@
-import {
-  AfterViewInit, Component, ElementRef, OnInit, ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as monaco from 'monaco-editor';
 import { MatSliderDragEvent } from '@angular/material/slider';
 import { ActiveStreamService } from '../../../../../shared/shared-module/services/active-stream.service';
@@ -11,6 +9,13 @@ import { MonacoService } from '../../../../../shared/shared-module/services/Mona
 import { RecordConfigService } from '../../../../../shared/shared-module/services/Record/record-config.service';
 import { PlaybackService } from '../../../../../shared/shared-module/services/Record/playback.service';
 import { TempStoreService } from '../../../../../shared/shared-module/services/Record/temp-store.service';
+
+// TODO: extract in separate interface
+interface TimeMark {
+  title: string,
+  position: number,
+  timeInSec: number,
+}
 
 @Component({
   selector: 'app-record',
@@ -36,6 +41,8 @@ export class RecordComponent implements OnInit, AfterViewInit {
 
   sliderDisabled = false;
 
+  timeMarks: TimeMark[] = [];
+
   constructor(
     private activeStreamService: ActiveStreamService,
     private gitHubService: GithubService,
@@ -48,7 +55,7 @@ export class RecordComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.gitHubService.getRemoteTextOfFile().subscribe((data) => {
       if (data) {
-        this.tempStoreService.setTempWholeText(data.path, data.text, true);
+        this.tempStoreService.setTempWholeText(data.path.split('/').join('\\'), data.text, true);
         this.monacoService.setWholeTextInMonaco(data.text);
       }
     });
@@ -78,13 +85,18 @@ export class RecordComponent implements OnInit, AfterViewInit {
     }
   }
 
-  dragEnd(event: MatSliderDragEvent) {
-    const timeToRewind = event.value < 0 ? 0 : event.value;
+  async dragEnd(event: MatSliderDragEvent | number) {
+    let timeToRewind: number;
+    if (typeof event === 'number') {
+      timeToRewind = event;
+    } else {
+      timeToRewind = event.value < 0 ? 0 : event.value;
+    }
 
     if (timeToRewind > this.currentTimePositionSec) {
-      this.playbackService.rewindForward(timeToRewind);
+      await this.playbackService.rewindForward(timeToRewind);
     } else if (timeToRewind < this.currentTimePositionSec) {
-      this.playbackService.rewindBackward(this.currentTimePositionSec, timeToRewind);
+      await this.playbackService.rewindBackward(this.currentTimePositionSec, timeToRewind);
     }
 
     if (this.webcamElement) {
@@ -149,6 +161,16 @@ export class RecordComponent implements OnInit, AfterViewInit {
 
   private getConfig() {
     this.recordConfigService.getRecordConfigData().then((value) => {
+      value.timeMarks.forEach((item) => {
+        const position = ((item.timePoint.hours * 3600000 + item.timePoint.minutes * 60000 + item.timePoint.seconds * 1000 + item.timePoint.milliseconds) * 100) / (value.duration * 1000);
+        const res: TimeMark = {
+          title: item.title,
+          position,
+          timeInSec: item.timePoint.seconds,
+        };
+        this.timeMarks.push(res);
+      });
+
       this.tempStoreService.setIdToFile(value.relativePath);
 
       this.recordDurationSecString = this.getFormattedTime(value.duration);
@@ -156,7 +178,7 @@ export class RecordComponent implements OnInit, AfterViewInit {
       this.playbackService.setCommands(value.commands, value.relativePath);
 
       this.gitHubService.sendRequestToGetRemoteFileText(
-        value.fileName,
+        value.relativePath.split('\\').slice(1).join('\\'),
         value.commitHash,
         value.ownerName,
         value.repoName,
