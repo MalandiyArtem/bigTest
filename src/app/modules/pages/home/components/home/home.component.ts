@@ -9,7 +9,7 @@ import { ConvergenceService } from '../../../../../shared/shared-module/services
 import { ActiveStreamService } from '../../../../../shared/shared-module/services/active-stream.service';
 import { StreamType } from '../../../../../shared/enums/stream-type';
 
-@Component({
+@Component({123123
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
