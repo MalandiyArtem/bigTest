@@ -8,6 +8,11 @@ export class IframeService {
   constructor(private router: Router) {
   }
 
+
+  simpleFunction() {
+    console.log(12);
+  }
+
   checkIsIframe(page: string) {
     this.router.navigate([page]);
   }
