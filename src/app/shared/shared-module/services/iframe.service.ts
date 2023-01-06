@@ -11,6 +11,7 @@ export class IframeService {
 
   simpleFunction() {
     console.log(12);
+    console.log('123456');
   }
 
   checkIsIframe(page: string) {
