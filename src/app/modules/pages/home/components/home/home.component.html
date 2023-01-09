@@ -19,6 +19,15 @@
 
       <button
         disabled="false"
+        (click)="pressMeHandler()"
+      >
+        Press me
+      </button>
+
+      <span class="testClassForSpan">{{ valueFromTreeService }}</span>
+
+      <button
+        disabled="false"
       >
         Enter your surname
       </button>

@@ -12,8 +12,6 @@ export class IframeService {
   // This is the test of recording
 
   simpleFunction() {
-    console.log(12);
-    console.log('123456');
   }
 
   checkIsIframe(page: string) {
