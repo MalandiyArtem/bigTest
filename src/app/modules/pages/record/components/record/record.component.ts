@@ -9,6 +9,7 @@ import { MonacoService } from '../../../../../shared/shared-module/services/Mona
 import { RecordConfigService } from '../../../../../shared/shared-module/services/Record/record-config.service';
 import { PlaybackService } from '../../../../../shared/shared-module/services/Record/playback.service';
 import { TempStoreService } from '../../../../../shared/shared-module/services/Record/temp-store.service';
+import { MediaControlService } from 'src/app/shared/shared-module/services/media-control.service';
 
 // TODO: extract in separate interface
 interface TimeMark {
@@ -50,33 +51,39 @@ export class RecordComponent implements OnInit, AfterViewInit {
     private recordConfigService: RecordConfigService,
     private playbackService: PlaybackService,
     private tempStoreService: TempStoreService,
+    private mediaControlService: MediaControlService,
   ) { }
 
   ngOnInit() {
-    this.gitHubService.getRemoteTextOfFile().subscribe((data) => {
-      if (data) {
-        this.tempStoreService.setTempWholeText(data.path.split('/').join('\\'), data.text, true);
-        this.monacoService.setWholeTextInMonaco(data.text);
-      }
+
+    this.mediaControlService.getValueFromMediaControl().subscribe((value: boolean) => {
+      console.log(value);
     });
 
-    this.playbackService.currentOpenedFile$.subscribe((path) => {
-      this.currentFileName = path || '';
-    });
+    // this.gitHubService.getRemoteTextOfFile().subscribe((data) => {
+    //   if (data) {
+    //     this.tempStoreService.setTempWholeText(data.path.split('/').join('\\'), data.text, true);
+    //     this.monacoService.setWholeTextInMonaco(data.text);
+    //   }
+    // });
 
-    this.playbackService.isPlaying$.subscribe((isPlaying) => {
-      if (isPlaying === null) return;
+    // this.playbackService.currentOpenedFile$.subscribe((path) => {
+    //   this.currentFileName = path || '';
+    // });
 
-      this.sliderDisabled = !isPlaying;
-      this.onPlayPauseClick();
-    });
+    // this.playbackService.isPlaying$.subscribe((isPlaying) => {
+    //   if (isPlaying === null) return;
 
-    this.playbackService.playAgain$.subscribe((playAgain) => {
-      if (playAgain) {
-        this.tempStoreService.clearTemp();
-        this.getConfig();
-      }
-    });
+    //   this.sliderDisabled = !isPlaying;
+    //   this.onPlayPauseClick();
+    // });
+
+    // this.playbackService.playAgain$.subscribe((playAgain) => {
+    //   if (playAgain) {
+    //     this.tempStoreService.clearTemp();
+    //     this.getConfig();
+    //   }
+    // });
   }
 
   initCam(webcamRef: ElementRef | undefined) {
@@ -160,6 +167,7 @@ export class RecordComponent implements OnInit, AfterViewInit {
   }
 
   private getConfig() {
+    console.log('GetConfigMethod');
     this.recordConfigService.getRecordConfigData().then((value) => {
       value.timeMarks.forEach((item) => {
         const position = ((item.timePoint.hours * 3600000 + item.timePoint.minutes * 60000 + item.timePoint.seconds * 1000 + item.timePoint.milliseconds) * 100) / (value.duration * 1000);

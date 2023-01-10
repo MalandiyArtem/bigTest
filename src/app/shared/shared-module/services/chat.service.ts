@@ -5,6 +5,7 @@ import { IChatMessage } from '../../interfaces/chatMessage.interface';
 @Injectable({
   providedIn: 'root',
 })
+
 export class ChatService {
   private messages: IChatMessage[] = [];
   private value = 0;
@@ -35,12 +36,4 @@ export class ChatService {
   returnTestVariable() {
     return this.testVariable2$.asObservable;
   }
-
-  // testFunction(value: number) {
-  //   this.testVariable$.next(value);
-  // }
-
-  // returnTestVariable() {
-  //   return this.testVariable$.asObservable;
-  // }
 }

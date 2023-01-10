@@ -3,7 +3,7 @@ export class TreeService {
     return projectFile || hostFiles;
   }
 
-  testMethodOfTreeService(inputValue: string) {
+  testMethodOfTreeService(inputValue: string | undefined) {
     return `This is the input value from testMethodOfTreeService: ${inputValue}`;
   }
 }
